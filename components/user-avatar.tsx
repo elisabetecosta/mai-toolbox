@@ -8,8 +8,8 @@ const UserAvatar = ({
     image,
     className
 }: {
-    name: string;
-    image: string;
+    name?: string | null;
+    image?: string | null;
     className?: string;
 }) => {
 
@@ -17,8 +17,8 @@ const UserAvatar = ({
         <Avatar className={cn('', className)}>
             {image && (
                 <Image
-                    src={image}
-                    alt={name}
+                    src={image || "https://github.com/shadcn.png"}
+                    alt={name || "Username"}
                     width={40}
                     height={40}
                     className="rounded-full"

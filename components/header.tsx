@@ -6,6 +6,7 @@ import { authOptions } from "@/auth";
 
 import DarkModeToggle from "./dark-mode-toggle";
 import UserButton from "./user-button";
+import CreateChatButton from "./create-chat-button";
 
 
 const Header = async () => {
@@ -29,6 +30,8 @@ const Header = async () => {
                             >
                                 <MessagesSquareIcon className="text-black dark:text-white" />
                             </Link>
+
+                            <CreateChatButton />
                         </>
                     ): (
                         <Link href={"/pricing"}>Pricing</Link>

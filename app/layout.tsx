@@ -6,7 +6,6 @@ import "./globals.css";
 import ClientProviders from "@/components/client-providers";
 import FirebaseAuthProvider from "@/components/firebase-auth-provider";
 import ThemeProvider from "@/components/theme-provider";
-import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +30,6 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <Header />
               {children}
             </ThemeProvider>
           </FirebaseAuthProvider>

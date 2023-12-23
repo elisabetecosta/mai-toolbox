@@ -1,7 +1,9 @@
-import { withAuth } from "next-auth/middleware";
+import NextAuth from "next-auth";
+import authConfig from "./auth.config";
 
-export default withAuth;
+export const { auth: middleware } = NextAuth(authConfig);
 
 export const config = {
-    matcher: ["/dashboard", "/register"],
+    // matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+    matcher: ["/dashboard/:path*", "/register"],
 };

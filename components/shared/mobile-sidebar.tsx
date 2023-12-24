@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 
 import {
@@ -12,6 +13,14 @@ import Sidebar from "@/components/shared/sidebar";
 
 
 const MobileSidebar = () => {
+
+    const [isMounted, setIsMouted] = useState(false);
+
+    useEffect(() => {
+        setIsMouted(true);
+    }, []);
+
+    if (!isMounted) return null;
 
     return (
         <Sheet>

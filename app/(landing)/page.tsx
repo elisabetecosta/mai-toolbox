@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 import { auth } from "@/auth";
 
 import LandingNavbar from "@/components/landing-navbar";
@@ -8,11 +10,12 @@ import LandingContent from "@/components/landing-content";
 const LandingPage = async () => {
 
     const session = await auth();
+    if (session?.user) return redirect("/dashboard");
 
     return (
         <div className="h-full ">
-            <LandingNavbar session={session} />
-            <LandingHero session={session} />
+            <LandingNavbar />
+            <LandingHero />
             <LandingContent />
         </div>
     );

@@ -3,10 +3,19 @@ import GoogleProvider from "next-auth/providers/google";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { adminAuth, adminDb } from "@/lib/firebase-admin";
 
+
 export default {
-    // pages: {
-    //     signIn: "/login",
-    // },
+    pages: {
+        signIn: "/login",
+    },
+    providers: [
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+        }),
+    ],
+    adapter: FirestoreAdapter(adminDb),
+    session: { strategy: "jwt" },
     callbacks: {
         session: async ({ session, token }) => {
             if (session?.user) {
@@ -25,12 +34,4 @@ export default {
             return token;
         },
     },
-    session: { strategy: "jwt" },
-    adapter: FirestoreAdapter(adminDb),
-    providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-        }),
-    ],
 } satisfies NextAuthConfig;

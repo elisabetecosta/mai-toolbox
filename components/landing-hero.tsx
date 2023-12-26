@@ -1,13 +1,12 @@
 "use client";
 
-import { Session } from "next-auth";
 import Link from "next/link";
 import TypewriterComponent from "typewriter-effect";
 
 import { Button } from "@/components/ui/button";
 
 
-const LandingHero = ({ session }: { session: Session | null }) => {
+const LandingHero = () => {
 
     return (
         <div className="text-white font-bold py-36 text-center space-y-5">
@@ -34,7 +33,7 @@ const LandingHero = ({ session }: { session: Session | null }) => {
                 Create content 10x faster with AI.
             </div>
             <div>
-                <Link href={session !== null ? "/dashboard" : "/sign-up"}>
+                <Link href="/register">
                     <Button variant="premium" className="md:text-lg p-4 md:p-6 rounded-full font-semibold">
                         Start for Free
                     </Button>

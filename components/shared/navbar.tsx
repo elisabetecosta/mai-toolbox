@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { MessagesSquareIcon } from "lucide-react";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 import { auth } from "@/auth";
 
@@ -11,6 +12,7 @@ import UserButton from "@/components/user-button";
 const Navbar = async () => {
 
     const session = await auth();
+    if (session === null) return redirect("/login");
 
     return (
         <div className="flex items-center p-4">

@@ -1,7 +1,7 @@
 "use client";
 
 import { Session } from "next-auth";
-import { signIn, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 import {
     DropdownMenu,
@@ -12,21 +12,10 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Button } from "@/components/ui/button";
-
 import UserAvatar from "./user-avatar";
 
 
 const UserButton = ({ session }: { session: Session | null }) => {
-
-    if (!session) return (
-        <Button
-            variant="outline"
-            onClick={() => signIn()}
-        >
-            Sign In
-        </Button>
-    );
 
     return (
         session && (
@@ -41,7 +30,11 @@ const UserButton = ({ session }: { session: Session | null }) => {
                     <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>Subscription</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => signOut()}>Sign Out</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => signOut({
+                        callbackUrl: "/"
+                    })}>
+                        Sign Out
+                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
         )

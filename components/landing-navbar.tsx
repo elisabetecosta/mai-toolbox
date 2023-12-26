@@ -1,7 +1,6 @@
 "use client";
 
 import { Montserrat } from "next/font/google";
-import { Session } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 const font = Montserrat({ weight: '600', subsets: ['latin'] });
 
-const LandingNavbar = ({ session }: { session: Session | null }) => {
+const LandingNavbar = () => {
 
   return (
     <nav className="p-4 bg-transparent flex items-center justify-between">
@@ -23,7 +22,7 @@ const LandingNavbar = ({ session }: { session: Session | null }) => {
         </h1>
       </Link>
       <div className="flex items-center gap-x-2">
-        <Link href={session !== null ? "/dashboard" : "/sign-up"}>
+        <Link href="/register">
           <Button variant="outline" className="rounded-full">
             Get Started
           </Button>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { auth } from "@/auth";
 
 import MobileSidebar from "@/components/shared/mobile-sidebar";
-import DarkModeToggle from "@/components/dark-mode-toggle";
+import DarkModeToggle from "@/components/ui/dark-mode-toggle";
 import CreateChatButton from "@/components/create-chat-button";
 import UserButton from "@/components/user-button";
 

@@ -12,7 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import UserAvatar from "./user-avatar";
+import UserAvatar from "@/components/ui/user-avatar";
 
 
 const UserButton = ({ session }: { session: Session | null }) => {

@@ -7,6 +7,7 @@ import {
     MessageSquare, 
     Music, 
     Settings, 
+    Smile, 
     VideoIcon
 } from "lucide-react";
 
@@ -33,6 +34,12 @@ const routes = [
         icon: MessageSquare,
         href: "/conversation",
         color: "text-violet-500",
+    },
+    {
+        label: "Companion",
+        icon: Smile,
+        href: "/companion",
+        color: "text-blue-500",
     },
     {
         label: "Image Generation",

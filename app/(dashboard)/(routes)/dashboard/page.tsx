@@ -7,6 +7,7 @@ import {
     ImageIcon,
     MessageSquare,
     Music,
+    Smile,
     VideoIcon
 } from "lucide-react";
 
@@ -21,6 +22,13 @@ const tools = [
         color: "text-violet-500",
         bgColor: "bg-violet-500/10",
         href: "/conversation"
+    },
+    {
+        label: "Companion",
+        icon: Smile,
+        color: "text-blue-500",
+        bgColor: "bg-blue-500/10",
+        href: "/companion"
     },
     {
         label: "Image Generation",
